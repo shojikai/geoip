@@ -126,6 +126,7 @@ static VALUE generic_single_value_lookup_response(char *key, char *value)
   VALUE result = rb_hash_new();
   if(value) {
     rb_hash_sset(result, key, encode_to_utf8_and_return_rb_str(value));
+    free(value);
     return result;
   } else {
     return Qnil;
